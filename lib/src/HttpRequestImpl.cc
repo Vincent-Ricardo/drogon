@@ -861,7 +861,7 @@ StreamDecompressStatus HttpRequestImpl::decompressBodyBrotli() noexcept
     size_t availableIn = compressed.size();
     auto nextIn = (const uint8_t *)(compressed.data());
     auto decompressed = std::string(minVal(maxMemorySize, availableIn * 3), 0);
-    auto nextOut = (uint8_t *)(decompressed.data());
+    // auto nextOut = (uint8_t *)(decompressed.data());
     size_t totalOut{0};
     auto s = BrotliDecoderCreateInstance(nullptr, nullptr, nullptr);
     size_t lastOut = 0;
@@ -902,7 +902,7 @@ StreamDecompressStatus HttpRequestImpl::decompressBodyBrotli() noexcept
         }
     }
     BrotliDecoderDestroyInstance(s);
-    return StreamDecompressStatus::Ok;
+    return status;  // StreamDecompressStatus::Ok;
 }
 #endif
 

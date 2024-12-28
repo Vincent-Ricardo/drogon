@@ -213,7 +213,7 @@ void HttpServer::onMessage(const TcpConnectionPtr &conn, MsgBuffer *buf)
         {
             break;
         }
-        if (parseRes >= 2 || parseRes == 1 && !req->isStreamMode())
+        if (parseRes >= 2 || (parseRes == 1 && !req->isStreamMode()))
         {
             req->setPeerAddr(conn->peerAddr());
             req->setLocalAddr(conn->localAddr());

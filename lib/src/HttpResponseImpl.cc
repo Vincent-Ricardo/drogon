@@ -423,7 +423,7 @@ HttpResponsePtr HttpResponse::newStreamResponse(
         if (!typeString.empty())
         {
             auto r = static_cast<HttpResponse *>(resp.get());
-            auto contentType = type;
+            // auto contentType = type;
             if (type == CT_NONE)
                 type = parseContentType(typeString);
             if (type == CT_NONE)
@@ -443,7 +443,7 @@ HttpResponsePtr HttpResponse::newStreamResponse(
         else
         {
             auto r = static_cast<HttpResponse *>(resp.get());
-            auto contentType = type;
+            // auto contentType = type;
             if (type == CT_NONE)
                 type = parseContentType(typeString);
             if (type == CT_NONE)
